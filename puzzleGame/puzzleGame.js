@@ -14,6 +14,7 @@ $(document).ready(
     var height = canvas.height;
     
     var score = 0;
+    var highScore = 0;
     var problemText = "5 + 3 = 7";
     var problemNumbers = 2;
     var correct = 0;
@@ -58,11 +59,23 @@ $(document).ready(
     
     function DrawScore()
     {
+        //high score logic
+        if(score >= highScore)
+        {
+            highScore = score;
+        }
+        
         var scoreText = "Score: " + score;
 	    context.font = 'italic 40pt Calibri';
 	    context.fillStyle = "black";
 	    context.textAlign = "center";
         context.fillText(scoreText,width/2,100);
+        
+        scoreText = "HighScore: " + highScore;
+        context.font = 'italic 14pt Calibri';
+	    context.fillStyle = "black";
+	    context.textAlign = "center";
+        context.fillText(scoreText,50,30);
     }
     
     function DrawProblem()
