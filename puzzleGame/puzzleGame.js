@@ -110,7 +110,7 @@ $(document).ready(
             if(randomSignsArray[0] != "/")
                 problemText += "=" + eval((randomNumberArray[0]+2).toString() + randomSignsArray[0].toString() + (randomNumberArray[1] + 1).toString()).toString();
             else
-                problemText += "=" + eval((randomNumberArray[0]+1).toString() + randomSignsArray[0].toString() + (randomNumberArray[1] + 1).toString()).toFixed(2).toString();
+                problemText += "=" + eval((randomNumberArray[0]+2).toString() + randomSignsArray[0].toString() + (randomNumberArray[1] + 1).toString()).toFixed(2).toString();
             //false, it is not correct!
             correct = 0;
         }
@@ -163,7 +163,10 @@ $(document).ready(
         }
         else if(clicked != -1)
         {
-            score = 0;
+            if(score < 3)
+                score = 0;
+            else
+                score -= 2;
             UpdateGame();
             clicked = -1;
         }
