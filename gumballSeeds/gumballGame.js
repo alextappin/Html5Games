@@ -14,7 +14,7 @@ $(document).ready(
     var width = $("#canvas").width();
     var height = $("#canvas").height();
     
-    var imageCounter = 0;
+    var imageCounter = 1;
     
     //Background Image Stuff
     var backImage = new Image();
@@ -24,9 +24,9 @@ $(document).ready(
     
     backImage.onload = function()
     {
-       context.drawImage(backImage,0,0, width, height);
+        context.drawImage(backImage,0,0, width, height);
         //where in the picture to draw, how much to draw, where to place it, how big to blow it up
-       context.drawImage(characterImage,character1X,characterY,140,130,200,340,100,100);
+        context.drawImage(characterImage,character1X,characterY,140,130,200,340,100,100);
     };
     
     function DrawBackground() 
@@ -45,6 +45,7 @@ $(document).ready(
     
     function CharacterAnimation()
     {
+        //draw character in the sprite sheet order
         switch (imageCounter) {
             case 1: context.drawImage(characterImage,character1X,characterY,140,130,200,340,100,100);
                 break;
